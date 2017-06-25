@@ -77,6 +77,7 @@ public class BookListingActivityFragment extends Fragment {
                                     mBookArrayAdapter.notifyDataSetChanged();
                                 } else {
                                     Log.d(LOG_TAG, "bookArrayList is null");
+                                    mBookArrayAdapter.clear();
                                     setEmptyView(rootView,
                                             rootView.getResources().getString(R.string.search_item_not_found));
                                 }
@@ -85,6 +86,7 @@ public class BookListingActivityFragment extends Fragment {
                         mGoogleBookAsyncTask.execute(searchString);
                     } else {
                         Log.d(LOG_TAG, "network not found");
+                        mBookArrayAdapter.clear();
                         setEmptyView(rootView, rootView.getResources().getString(R.string.network_not_found));
                     }
                 } else {
